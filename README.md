@@ -39,6 +39,7 @@ The **3D Resume Cube** redefines how you present your professional journey. This
 ### 1️⃣ Clone the Repository  
 
 git clone https://github.com/tabitha-dev/Resume_Cube_2025.git
+
 cd Resume_Cube_2025
 
 ### 2️⃣ Open in Browser
