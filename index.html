@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Resume Cube - Tabitha Khadse</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            background-color: #0d1117;
+            color: white;
+        }
+
+        /* Accessibility Tooltip */
+        #accessibility-info {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        /* Sidebar Links */
+        .links {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            text-align: left;
+            z-index: 10;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            color: #4dd0e1;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .footer-icons a {
+            margin: 0 15px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: #4dd0e1;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Accessibility Tooltip -->
+<div id="accessibility-info">
+    🔍 Use your mouse or touch to <strong>rotate</strong>, <strong>zoom in/out</strong>, and <strong>click</strong> the cube faces!
+</div>
+
+<!-- Sidebar Links -->
+<div class="links">
+    <a href="https://code.tabitha.dev/" target="_blank">Portfolio</a>
+    <a href="https://www.linkedin.com/in/tabitha-dev/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tabitha-dev" target="_blank">GitHub</a>
+    <a href="Tk resume 2025.pdf" target="_blank">Resume</a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-icons">
+        <a href="https://github.com/tabitha-dev" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tabitha-dev" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://code.tabitha.dev/" target="_blank"><i class="fas fa-globe"></i></a>
+    </div>
+</div>
+
+<script>
+    // Initialize Three.js
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    let renderer = new THREE.WebGLRenderer({ antialias: true });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Lighting
+    let ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+    scene.add(ambientLight);
+
+    let directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    // Cube Geometry
+    let geometry = new THREE.BoxGeometry(3, 3, 3);
+    let materials = [];
+
+    // ✅ Corrected Image Paths
+    let faceImages = [
+        { url: 'Tk resume 2025.pdf', image: 'resumes-desk.jpg' }, // Resume
+        { url: 'https://github.com/tabitha-dev', image: 'github-6980894_1280.png' }, // GitHub
+        { url: 'https://www.linkedin.com/in/tabitha-dev/', image: 'linkedin_3536505.png' }, // LinkedIn
+        { url: 'https://code.tabitha.dev/', image: 'folder-2170316_1280.png' }, // Portfolio
+        { url: 'https://www.linkedin.com/in/tabitha-dev/details/certifications/', image: 'legal-document_1890467.png' }, // Certifications
+        { url: 'https://www.linkedin.com/in/tabitha-dev/recent-activity/articles/', image: 'gui-2457113_1280.png' } // Articles
+    ];
+
+    let textureLoader = new THREE.TextureLoader();
+
+    faceImages.forEach((face) => {
+        let texture = textureLoader.load(
+            face.image,
+            function () {
+                console.log("✅ Texture loaded successfully:", face.image);
+                renderer.render(scene, camera);
+            },
+            undefined,
+            function (err) {
+                console.error("🚨 Error loading texture:", face.image, err);
+            }
+        );
+
+        materials.push(new THREE.MeshBasicMaterial({ map: texture }));
+    });
+
+    let cube = new THREE.Mesh(geometry, materials);
+    scene.add(cube);
+
+    // Set Cube Position
+    camera.position.z = 6;
+
+    // OrbitControls for zoom and rotation
+    let controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.1;
+    controls.screenSpacePanning = false;
+    controls.minDistance = 3;
+    controls.maxDistance = 12;
+    controls.enableZoom = true;
+
+    // 🌟 Add Floating Particles Background
+    let particleGeometry = new THREE.BufferGeometry();
+    let particleCount = 500;
+    let positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 20;
+    }
+
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    let particleMaterial = new THREE.PointsMaterial({ color: 0x4dd0e1, size: 0.1 });
+    let particles = new THREE.Points(particleGeometry, particleMaterial);
+    scene.add(particles);
+
+    function animateParticles() {
+        particles.rotation.y += 0.0005;
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // Animate Scene
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.005;
+        cube.rotation.y += 0.005;
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle cube click interaction
+    document.addEventListener("click", (event) => {
+        let mouse = new THREE.Vector2(
+            (event.clientX / window.innerWidth) * 2 - 1,
+            -(event.clientY / window.innerHeight) * 2 + 1
+        );
+
+        let raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
+
+        let intersects = raycaster.intersectObject(cube);
+
+        if (intersects.length > 0) {
+            let faceIndex = Math.floor(intersects[0].faceIndex / 2);
+            window.open(faceImages[faceIndex].url, "_blank");
+        }
+    });
+
+</script>
+
+</body>
+</html>
