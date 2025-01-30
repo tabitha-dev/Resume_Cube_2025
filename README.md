@@ -1,90 +1,92 @@
 # 🚀 3D Resume Cube - Tabitha Khadse  
 
-![3D Resume Cube Preview](https://github.com/tabitha-dev/3d-resume-cube/assets/banner.png)  
+🌐 **Live Demo** → [**Try it Here!**](https://replit.com/@TabithaK/Resume-Cube-2025)  
 
-📌 **An interactive 3D resume using Three.js**  
-🔗 **[Live Demo](https://code.tabitha.dev/)**  
+Experience the future of **portfolio presentation** with an **interactive 3D cube** that showcases professional profiles, resumes, and projects in a visually stunning way.  
 
 ---
 
 ## 📜 About  
 
-The **3D Resume Cube** is an innovative way to showcase your **portfolio, resume, and professional links** using a rotating 3D cube. Each face of the cube links to different sections of your professional profile.
+The **3D Resume Cube** redefines how you present your professional journey. This innovative portfolio features a **rotating 3D cube**, where each face links to key resources like your **resume, portfolio, GitHub, LinkedIn, and more**.  
 
-### ✨ Features:  
-- 🖥 **3D Cube Interaction** – Rotate, zoom, and click on faces to navigate  
-- 🎨 **Minimalist UI** – Clean design with sidebar & footer links  
-- 🌌 **Floating Particle Background** – A sleek futuristic touch  
-- 📜 **Quick Access to Resume, Portfolio, GitHub, and LinkedIn**  
+> **It’s not just a resume—it’s an immersive experience designed to captivate and engage.**  
 
 ---
 
-## 🖥 Tech Stack  
+## ✨ Features  
 
-| Technology  | Purpose  |
-|-------------|----------|
-| [Three.js](https://threejs.org/) | 3D rendering & cube animations |
-| [OrbitControls.js](https://threejs.org/docs/#examples/en/controls/OrbitControls) | Camera & user controls |
-| HTML, CSS | Structure & Styling |
-| Font Awesome | Icons for links & navigation |
+- 🎮 **Interactive 3D Cube** → Rotate, zoom, and click to explore your professional world.  
+- 🎨 **Sleek & Minimal UI** → Clean, modern, and professional design.  
+- 🌌 **Floating Particle Background** → Adds a futuristic touch to the experience.  
+- 🔗 **Quick Navigation** → Direct links to your **resume, portfolio, GitHub, LinkedIn, and more**.  
 
 ---
 
-## 🚀 Installation & Setup  
+## 🛠 Tech Stack  
 
-Follow these steps to set up the project locally:
+| 🚀 Technology | 🛠 Purpose |
+|--------------|----------|
+| [Three.js](https://threejs.org/) | 3D rendering & animations |
+| [OrbitControls.js](https://threejs.org/docs/#examples/en/controls/OrbitControls) | Smooth user interaction |
+| **HTML & CSS** | Structure & styling |
+| [Font Awesome](https://fontawesome.com/) | Icons for navigation |
+
+---
+
+## 🔧 Installation & Setup  
 
 ### 1️⃣ Clone the Repository  
-```sh
-git clone https://github.com/tabitha-dev/3d-resume-cube.git
-cd 3d-resume-cube
 
-## 🚀 Installation & Setup  
+git clone https://github.com/tabitha-dev/Resume_Cube_2025.git
+cd Resume_Cube_2025
 
-Follow these steps to set up the project locally:
+### 2️⃣ Open in Browser
 
-### 1️⃣ Clone the Repository  
-```sh
-git clone https://github.com/tabitha-dev/3d-resume-cube.git
-cd 3d-resume-cube
-2️⃣ Open in Browser
-Simply open the index.html file in your browser.
+Option 1: Open index.html directly in your browser.
 
-Or use Live Server (recommended for smooth development):
+Option 2: Run a local server for the best experience:
+
 npx live-server
+
 🎮 How to Use
-Rotate & Zoom using your mouse or touchpad.
-Click on a cube face to navigate to its corresponding link (GitHub, LinkedIn, Portfolio, Resume, etc.).
-Enjoy the interactive experience!
-🔍 Pro Tip: Try it in full-screen mode for the best effect.
+✅ Rotate & Zoom: Use your mouse or touch gestures to navigate.
+
+✅ Click a Cube Face: Explore links to your portfolio, GitHub, LinkedIn, resume, certifications, and articles.
+
+✅ Immersive Experience: Enjoy the futuristic design and interactive elements.
+
+💡 Pro Tip: Try full-screen mode for the best visual experience!
 
 📂 Project Structure
-plaintext
-Copy
-Edit
 3d-resume-cube/
 │── index.html          # Main HTML file (3D Cube UI)
 │── assets/             # Image & texture assets
 │── styles.css          # Custom styles
 │── script.js           # Three.js logic (cube & interactions)
-│── README.md           # Documentation (you're here!)
-📌 Live Demo
-🎥 Try it live here!
+│── README.md           # Documentation
+
 
 🤝 Contributing
-Contributions are welcome! If you'd like to improve or extend this project, feel free to:
+Contributions are welcome! If you'd like to improve or extend this project:
 
-Fork the repository
-Create a feature branch (feature/your-feature-name)
-Commit your changes
-Open a Pull Request
+Fork the repository.
+
+Create a new feature branch (feature/your-feature-name).
+
+Commit your changes.
+
+Open a Pull Request.
+
 📧 Contact
-Tabitha Khadse
+💻 Portfolio: Tabitha Khadse
 
-🔗 Portfolio
-🐙 GitHub
-💼 LinkedIn
+🐙 GitHub: tabitha-dev
+
+💼 LinkedIn: Tabitha Khadse
+
 📜 License
 This project is licensed under the MIT License. Feel free to modify and use it for your own projects. 🚀
 
-💡 If you like this project, don’t forget to ⭐️ the repo! 😊
+⭐ Enjoyed the project? Don't forget to star the repo! 😊
+
